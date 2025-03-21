@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 Gen AI-Based Email Classification and OCR
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
