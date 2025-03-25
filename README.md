@@ -73,7 +73,7 @@ This project leverages Generative AI (LLMs) with LangChain to automate email cla
 
    - Streamlit for UI and API integration
  - System Design:
-      ![System design](artifacts/arch/System Design.jpg)
+      ![System design](artifacts/arch/System_Design.jpg)
 
 
 ## 🚧 Challenges We Faced
