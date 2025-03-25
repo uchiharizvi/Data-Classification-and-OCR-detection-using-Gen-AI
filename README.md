@@ -127,7 +127,8 @@ This project leverages Generative AI (LLMs) with LangChain to automate email cla
 
    - Integrate retrieval-augmented generation (RAG) for better contextual understanding.
 
-   - Deploy on AWS/GCP for scalable processing.
+   - Deploy on Azure/AWS/GCP for scalable processing.
+   - ![Proposed design](artifacts/arch/future_architecture.jpg)
 
 ## 🏗️ Tech Stack
 - 🔹 Frontend: Streamlit
