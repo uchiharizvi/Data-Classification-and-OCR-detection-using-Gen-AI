@@ -26,7 +26,8 @@ This project leverages Generative AI (LLMs) with LangChain to automate email cla
 📹 [Video Demo](#) (if applicable)  
 🖼️ Screenshots:
 
-![Screenshot 1](link-to-image)
+![Screenshot 1](artifacts/screenshots/ss1.jpg)
+![Screenshot 1](artifacts/screenshots/ss2.jpg)
 
 ## 💡 Inspiration
 - Financial institutions handle thousands of service requests daily, leading to inefficiencies due to manual classification.
