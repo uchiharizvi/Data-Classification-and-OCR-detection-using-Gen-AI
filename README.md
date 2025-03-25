@@ -1,23 +1,3 @@
-Require Python 3.10 Microsoft Visual Studio Tools 2022
-
-python -m venv nonopenai
-
-Activate it:
-
-Windows:.\nonopenai\Scripts\activate
-Install the GPT4All Installer using GUI based installers
-Windows: https://gpt4all.io/installers/gpt4all-installer-win64.exe
-Mac: https://gpt4all.io/installers/gpt4all-installer-darwin.dmg
-Ubuntu: https://gpt4all.io/installers/gpt4all-installer-linux.run
-Download the required LLM models and take note of the PATH they're installed to
-Clone this repo
-pip install gpt4all langchain-community streamlit
-The comparison app can be started by running streamlit run app-comparison.py before you do that though, update the base ggml download path in line 16, e.g. BASE_PATH = 'C:/Users/User/AppData/Local/nomic.ai/GPT4All/' and openAI api key on line 11
-References
-
-https://www.nomic.ai/gpt4all
-https://python.langchain.com/docs/integrations/llms/gpt4all/
-
 # 🚀 Gen AI-Based Email Classification and OCR
 
 ## 📌 Table of Contents
@@ -27,14 +7,19 @@ https://python.langchain.com/docs/integrations/llms/gpt4all/
 - [What It Does](#what-it-does)
 - [How We Built It](#how-we-built-it)
 - [Challenges We Faced](#challenges-we-faced)
+- [Folder Structure](#folder-structure)
 - [How to Run](#how-to-run)
+- [Future Enhancements](#future-enhancements)
 - [Tech Stack](#tech-stack)
 - [Team](#team)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
 ## 🎯 Introduction
-Receiving hundreds or thousands of mails a day and then figuring out which mail should be directed to which person can be a daunting task. This project aims to tackle that problem. We created a solution that can effectively classify emails based on not only their content, but also the context in which they are written, and then route them to the respective department(s) or person(s) in charge. Multiple emails from customers/clients that are dealt with different teams based on the context. This solution should enable auto-classification of emails based on the context, so the same can be routed to best suited team for further processing.
+Commercial Bank Lending Service teams receive a high volume of servicing requests via email. These emails contain diverse requests, often with attachments, which need to be processed and ingested into the loan servicing platform. Currently, manual processing is time-consuming, error-prone, and inefficient.
+
+This project leverages Generative AI (LLMs) with LangChain to automate email classification and data extraction, improving efficiency, accuracy, and turnaround time in loan servicing.
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
@@ -44,37 +29,118 @@ Receiving hundreds or thousands of mails a day and then figuring out which mail 
 ![Screenshot 1](link-to-image)
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+- Financial institutions handle thousands of service requests daily, leading to inefficiencies due to manual classification.
+
+- Traditional rule-based automation solutions lack the flexibility to handle diverse email structures and attachments.
+
+- With recent advancements in Large Language Models (LLMs), we aim to leverage AI for intelligent email processing to enhance operational efficiency.
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+1. Email Classification: Categorizes incoming loan service requests into predefined classes (e.g., Loan Modification, Payment Inquiry, Document Request, etc.).
+
+2. Data Extraction: Extracts relevant entities such as loan numbers, customer details, payment amounts, and key dates from both email bodies and attachments.
+
+3. Intelligent Processing Pipeline:
+   - Uses LangChain to integrate multiple LLMs (LLaMA, Falcon, DeepSeek).
+
+   - Applies different model configurations (1B, 3B, 8B) for performance comparison.
+
+   - Parses email content & attachments (PDF, DOCX, XLSX, etc.).
+
+   - Automates structured data ingestion into the Loan Servicing Platform.
+
+4. Improved Accuracy & Efficiency:
+
+   - Reduces manual workload.
+
+   - Enhances data extraction precision.
+
+   - Speeds up turnaround time significantly.
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+- Programming Language: Python
+
+- Frameworks & Libraries:
+
+   - LangChain for LLM orchestration
+
+   - LLMs (LLaMA, Falcon, DeepSeek - 1B, 3B, 8B models)
+
+   - PyPDF2, re for document processing
+
+   - Spam Detection : Spam ML Model and NLTK
+
+   - Streamlit for UI and API integration
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+- Handling Unstructured Data: Emails vary in format, making entity extraction challenging.
+
+- Model Selection & Optimization: Balancing accuracy, cost, and speed across different LLMs.
+
+- Attachment Processing: Extracting data from scanned PDFs and complex tables.
+
+- Latency & Performance: Optimizing LLM inference to meet real-time processing requirements.
+
+- Integrating Multi-Modal Data: Handling both text and document-based content effectively.
+
+## Folder Structure
+📦 gaied-gen-x-y-zn/code/src
+├── 📂 data                    # Sample email data & attachments
+├── 📂 lib                     # Email parsing & processing scripts
+├── 📂 Utils                   # Utility methods
+├── 📜 app-comparison.py       # Main Application
+├── 📜 llm.py                  # LLM configurations & code
+├── 📜 README.md               # Project Documentation
+├── 📜 requirements.txt        # Dependencies
+
 
 ## 🏃 How to Run
 1. Clone the repository  
    ```sh
-   git clone https://github.com/your-repo.git
+   git clone https://github.com/ewfx/gaied-gen-x-y-z.git
    ```
-2. Install dependencies  
+2. Create a virtual environment
    ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-3. Run the project  
+3. Install dependencies  
    ```sh
-   npm start  # or python app.py
+   pip install -r requirements.txt
    ```
+4. Install the GPT4All Installer using GUI based installers
+   - Windows: https://gpt4all.io/installers/gpt4all-installer-win64.exe
+   - Mac: https://gpt4all.io/installers/gpt4all-installer-darwin.dmg
+   - Ubuntu: https://gpt4all.io/installers/gpt4all-installer-linux.run
+
+5. Download the required LLM models and take note of the PATH they're installed to
+6. Update the path of the models in app-comparison.py & llm.py & app-main.py
+7. Run the project  
+   ```sh
+   streamlit run app-comparison.py
+   ```
+
+## 📌 Future Enhancements
+
+   - Implement fine-tuning on domain-specific data.
+
+   - Integrate retrieval-augmented generation (RAG) for better contextual understanding.
+
+   - Deploy on AWS/GCP for scalable processing.
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Frontend: Streamlit
+- 🔹 Backend: Streamlit
+- 🔹 Other: Langchain / GPT4All
+
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Aditya Mangla** - [GitHub](https://github.com/aadimangla) | [LinkedIn](https://www.linkedin.com/in/aadimangla/)
+- **Richa Gupta** - [GitHub](#) | [LinkedIn](#)
+- **Ahmed Kavish Rizvi** - [GitHub](#) | [LinkedIn](#)
+- **Nalini V.** - [GitHub](#) | [LinkedIn](#)
+
+## 🌟 Acknowledgments
+   - Thanks to Wells Fargo Hackathon Organizers for this challenge.
+   - Inspired by advances in LLM-based document processing.
+   - Shoutout to OpenAI, Hugging Face, LangChain for powerful AI tools!
