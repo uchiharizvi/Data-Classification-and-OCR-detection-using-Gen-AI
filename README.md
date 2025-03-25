@@ -72,6 +72,11 @@ This project leverages Generative AI (LLMs) with LangChain to automate email cla
    - Spam Detection : Spam ML Model and NLTK
 
    - Streamlit for UI and API integration
+ - System Design:
+
+ 
+   -  ![System design](artifacts/arch/System Design.jpg)
+
 
 ## 🚧 Challenges We Faced
 - Handling Unstructured Data: Emails vary in format, making entity extraction challenging.
