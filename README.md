@@ -138,7 +138,7 @@ This project leverages Generative AI (LLMs) with LangChain to automate email cla
 ## 👥 Team
 - **Aditya Mangla** - [GitHub](https://github.com/aadimangla) | [LinkedIn](https://www.linkedin.com/in/aadimangla/)
 - **Richa Gupta** - [GitHub](#) | [LinkedIn](#)
-- **Ahmed Kavish Rizvi** - [GitHub](#) | [LinkedIn](#)
+- **Ahmed Kavish Rizvi** - [GitHub](https://github.com/uchiharizvi) | [LinkedIn](https://www.linkedin.com/in/kavishrizvi)
 - **Nalini V.** - [GitHub](#) | [LinkedIn](#)
 
 ## 🌟 Acknowledgments
