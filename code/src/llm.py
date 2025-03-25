@@ -87,3 +87,30 @@ def duplicate_email_check(email_text, attachement_text, llm):
     return chain3.invoke({"email": email_text, "attachement_text" : attachement_text, "other_emails" : other_emails})
 
 # todo : add loggers
+# '''
+#     you will be given body of an email.
+#     your task is to find the industry and sentiment it is associated to.
+#     industry types are : energy, pharmaceuticals, finance, technology, travel.
+#     Sentiments are : neutral, complaint, urgent, query.
+#     Context: {join(documents)};
+#     Prompt: {query}
+#     You don't have to provide any additional information
+#     Answer in the following format: x-y
+#     where 'x' is industry based upon context it can be [pharmaceuticals, finance, energy, technology, travel]
+#     where 'y' is sentiment based upon context it can be [neutral, complaint, urgent, query]
+#     Just provide industry nothing more
+#     '''
+    
+    
+#     '''
+#     You are given a mail.
+#     Your task is to forward the mail to appropriate team.
+#     You will have to traverse the context to find the mails of appropriate team.
+#     You must answer the mail addresses of the team(s) in a list.
+#     DON'T ADD ADDITONAL DETAILS IN ANSWER.
+#     Prompt: {query}
+#     Context: join({documents})
+#     Please provide your response in the following format: [x, y, z, ...]
+#     Where 'x/y/z' are email addresses.
+#     JUST GIVE ME MAILS NOTHING MORE.
+#     '''

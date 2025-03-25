@@ -1,6 +1,8 @@
 import PyPDF2
 import os
 import logging
+from joblib import load
+from Utils.Util import *
 
 logger = logging.getLogger("attachements")
 
@@ -14,7 +16,7 @@ def extract_attachments(uploaded_file):
             text += page_obj.extract_text()
     else:
         text = None
-        
+    text = preprocess_text(text)
     if text is not None:
         logger.info("Attachment Parsed succesfully")
         extracted_texts = text

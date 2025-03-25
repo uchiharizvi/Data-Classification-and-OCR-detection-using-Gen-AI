@@ -1,0 +1,136 @@
+Return-path: <rizvikavish205@gmail.com>
+Original-recipient: rfc822;kavish.r@icloud.com
+Received: from p00-icloudmta-smtpin-us-west-1a-100-percent-26 by p102-mailgateway-smtp-f9489dff6-bpf75 (mailgateway 2510B36)
+	with SMTP id 23852127-6709-4d39-b81f-fbb445b2cd15 
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:31:35 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: 23852127-6709-4d39-b81f-fbb445b2cd15
+Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com [209.85.210.50])
+	by p00-icloudmta-smtpin-us-west-1a-100-percent-26.p00-icloudmta-smtpin-vip.icloud-mail-production.svc.kube.us-west-1a.k8s.cloud.apple.com (Postfix) with ESMTPS id CC564C000A1
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:31:32 +0000 (UTC)
+X-ICL-Info: GAtbRFYDBVFFSlVHSwQEUVUKE0oWX1gHVQoPB0UCBltbQVNZSgEGTEBJRhIcDUQLDw8PHBlGXxEdS1ZCOFdbAxwVSBQXXRYEEUQBGhlZWkwWFgtXClMLCRQPDwQQHkQiHBoKGA1UGAEaFEYfHVxZXxgYDxtVX0JTWB9TR1ZXWQ0SFQNZG19bQgUNFEoVUV8OWBYSRlVWA1JbHgkYH1xTTBYWC1ccVAsFGBgPG1ZTWQ9VFA8TRQx1Iz9NDkY2Zx01DRocEklBBClIADYTIAJnEUwKJDMyc2lbNw0/IQ9yWDIcSC0iFl4BERI5CxYRXBgFGBgPG1ZTWQ9L
+X-ICL-Score: 3.33303303423
+Authentication-Results: bimi.icloud.com; bimi=skipped reason="insufficient dmarc"
+X-ARC-Info: policy=fail; arc=none
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=gmail.com
+X-DMARC-Policy: v=DMARC1; p=none; sp=quarantine; rua=mailto:mailauth-reports@google.com
+X-DMARC-Info: pass=pass; dmarc-policy=none; s=r1; d=r1; pdomain=gmail.com
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=VSFLvilY
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.210.50 as permitted sender) smtp.mailfrom=rizvikavish205@gmail.com
+Received-SPF: pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.210.50 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.210.50; helo=mail-ot1-f50.google.com; envelope-from=rizvikavish205@gmail.com
+Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-72c0987bc4fso708788a34.0
+        for <kavish.r@icloud.com>; Sat, 22 Mar 2025 07:31:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742653892; x=1743258692; darn=icloud.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=pWJnZSKymgda2i5HZZIF2Gq3ybnGtnlpqC1TO2/BO0s=;
+        b=VSFLvilYJDDQk3KeO6P94HkvnGZrLpKEuH7hgFkpiQOPW/sLuH4BI7KBRH/YF40O9j
+         0fILX5cdzWavoyTicINtvm2RuosP1JfeRuz2HZ5nuk5XuuodnwbeumOxetUctq0x5cLJ
+         QRW5DKo2GpF74doQz3wL8y2DxIuJwceUF2oZ5pWmWZRwZ2Bfc4aHpWHhQ7ER5mVcHj0P
+         dwJ9Hf/25R1XO+yzsyOwJFWsD8ga/6/QJg+SEh6MeO3J5LFM6J3tIcv988szkHb/Gukq
+         V/T/rkjoZScOYQJICQgVmyjFId2RZFFDmUf+y9ESJIDgJvdfzT/xHji6gankVwsFIWk9
+         +UAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742653892; x=1743258692;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pWJnZSKymgda2i5HZZIF2Gq3ybnGtnlpqC1TO2/BO0s=;
+        b=GoGroAlmKX22QjCDL2wtpZEEg367iFw2rxVOvVNDTjLZiuVmqWCWWP5fk5YpacSgfq
+         qN6TvZjV28+dGYSEWurwt7U77fKjEDjkuJXXW1C8npLT8Q7SKVXZgrSBSq9i1N7rxg8M
+         lkxYEpKc5I0SphacrQIeai62FfnBqK5iYa6qh7R+OHYow5xdiBcetzSkDDOroz4S1aez
+         yRuwcwRvWG2gpq3Zz3Zmh/q9G/DIv8+fI7sd8VYrZ5avRsDAoyuY23SR7FT7I0wZTVkc
+         TdGGvJr01kVL7al02qvTjZmWc84oxHVK6j5awkUcTJTb3SXYINTXVRjyUn2PB8//FhgG
+         PnbQ==
+X-Gm-Message-State: AOJu0Yy49rlDSQSANHDRRAqKmB7M/OjXmc4n70OvqKwP1hCEGMOwZby5
+	R3YoJeDfbC0HIGWOIeNhQtWo405KPUsVV0a5WIMxuWBnhlsAuA1ezty2Jx2J/x62ri48m27xmUf
+	qhvBZKnX45kLwo0LH5iaA8MGFuUVKqpMI
+X-Gm-Gg: ASbGnctOrngfPTw0QHV6yDi/jzGmS9av71aAGUqY12njawYXtyfzdqRJkJX5LdeQaQp
+	Rh+gYrvo88bgBhCy1X56NBKAL1vpUciU01Ksa20nXDDlyKG8W0B02nj7WA8Cc1jAIl06em9DE9s
+	H3Zy3VjllpLX6vfSDqNPBVzrJ3wwm0t21aLlE=
+X-Google-Smtp-Source: AGHT+IFiHHS516vbA2XTVufBDLQHwocNEYA7X9CfD+3WNFwRqC+ZE1swmCkRUO9/QcdjljFw6s11bIBDMUb8Mm34/F4=
+X-Received: by 2002:a05:6830:490a:b0:72a:1821:aa9c with SMTP id
+ 46e09a7af769-72c0ae6a168mr5655433a34.8.1742653891788; Sat, 22 Mar 2025
+ 07:31:31 -0700 (PDT)
+MIME-Version: 1.0
+From: Kavish Rizvi <rizvikavish205@gmail.com>
+Date: Sat, 22 Mar 2025 20:01:21 +0530
+X-Gm-Features: AQ5f1JrhCW5b_gZydFRI6xYtmRg_ic1-IggG2VCWL7GKXPGFTynDDxr644qri-A
+Message-ID: <CAJ4h1NW+Wxcze1q2K=yPdX2Qs9sBDJC_9BtYVwBnPi1KUnn7sg@mail.gmail.com>
+Subject: =?UTF-8?Q?Your_Loan_Application_Has_Been_Received_=E2=80=93_BOA=2DAPL=2D?=
+	=?UTF-8?Q?20250322=2D001?=
+To: Kavish Rizvi <kavish.r@icloud.com>
+Content-Type: multipart/alternative; boundary="0000000000002fc6a90630ef3a93"
+X-MANTSH: 1TFkXGxoaHxEKWUQXZx9dHktdaFhvGkERCllNF25PRkNcT1gRCl9ZFxscGhEKX00
+ XZEVETxEKWUkXHR9xGwYbHxp3BgcYGgYaBhoGHR8GGnEaEBp3BhoGGgYZGgYaBhoGGnEaEBp3B
+ hoRClleF2xseREKQ04XaAdLe0JaXFhOWUYeHU1uZh1vHW5cGBJtXE1ObBJCWGIRClhcFxkEGgQ
+ fGwUbGgQbHBgEGBMEGB4SEBseGh8aEQpeWRdMbG0fTREKTVwXGx8aEQpMWhdoaWt7axEKTEYXT
+ WsRCkNaFxgaEwQSHwQYGxoEHxoRCkJeFxsRCkJcFxsRCl5OFxsRCkJLF2NTY2t7E1h+Gl9eEQp
+ CSRdjU2NrexNYfhpfXhEKQkUXYGQZWVN8ckZvSEERCkJOF2NTY2t7E1h+Gl9eEQpCTBdre0tJY
+ HJLaEx4HxEKQmwXa34fTxpASUJFRV4RCkJAF2VTYmNZWmNuY28cEQpCWBdnAURrAV1YZUcYXxE
+ KTV4XBxsRClpYFxkRCnBnF2gBaUEYa1wdY2JgEAcZGhEKcGgXZmlMeUcabG57HmMQBxkaEQpwa
+ BdiSB19G1kbe3tsTBAHGRoRCnBoF2RkR3hiXWVgc1McEAcZGhEKcGgXZH96Um9SGGBQQxsQBxk
+ aEQpwaBdsEmtfTR8fTGF/QhAHGRoRCnBoF3p7GlpzBQVZH1hJEAcZGhEKcGgXZgFZcmZbcBpsZ
+ hkQBxkaEQpwaBdsHB1sRFtQHFsFTxAHGRoRCnB/F2hcU3lsRR0TQXt5EB8aEQpwXxduR2AdSUZ
+ FSUVhGRAHGRoRCnB9F2kFQ05aGltOZn9FEAcZGhEKcH0XZUNBSF1ZchtBQ2EQBxkaEQpwbBdgQ
+ x5zGk9cQERfGhAHGRoRCnBMF2scGWRcTWZvSBJpEAcZGhEKbX4XBxsRClhNF0sR
+X-Authority-Info: v=2.4 cv=NKUv+16g c=1 sm=1 tr=0 ts=67dec9c5 cx=c_apl:c_pps a=dI2QwpXbObxnQOq0HjuwWw==:117 a=Vs1iUdzkB0EA:10 a=5KLPUuaC_9wA:10 a=1EWHoNYXi6cA:10 a=x7bEGLp0ZPQA:10 a=32LuoWKU4TAA:10 a=95EFz5htlIgA:10 a=V2p9s2bUAAAA:8 a=8gQpsnxhb_hCWCSh-ioA:9 a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10 a=xMc470H2u-lu1uG96XoA:9 a=VFhuSSNHcZj7MWVw:21 a=lqcHg5cX4UMA:10 a=xly9g2Kh2qStp_sYVjLA:22
+X-Proofpoint-ORIG-GUID: B-aQhpvrdsl47gDL7E7Dv28GvgdF8hrH
+X-Proofpoint-GUID: B-aQhpvrdsl47gDL7E7Dv28GvgdF8hrH
+
+--0000000000002fc6a90630ef3a93
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Felicity,
+
+Thank you for applying for a loan with Bank of America. We have
+successfully received your application for a Personal Loan and are
+currently reviewing your submission.
+=E2=80=A2 Application Reference Number: BOA-APL-20250322-001
+=E2=80=A2 Loan Amount Requested: $15,000
+=E2=80=A2 Estimated Processing Time: 3 business days
+
+Our loan officer will contact you if additional information is required.
+You can track your application status via
+https://www.bankofamerica.com/loan-status?id=3D001.
+
+For any questions,
+=F0=9F=93=9E Phone: 1-800-432-1000 (24/7 Support)
+=F0=9F=93=A7 Email: support@bankofamerica.com
+=F0=9F=92=AC Live Chat: BOA Online Support
+
+For loan-specific inquiries, you can also visit:
+=F0=9F=94=97 Loan Support Portal: Track Loan Application
+
+Best regards,
+Amy James
+Loan Department
+Bank of America
+
+--0000000000002fc6a90630ef3a93
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear Felicity,<br><br>Thank you for applying for a lo=
+an with Bank of America. We have successfully received your application for=
+ a Personal Loan and are currently reviewing your submission.<br>	=E2=80=A2=
+	Application Reference Number: BOA-APL-20250322-001<br>	=E2=80=A2	Loan Amou=
+nt Requested: $15,000<br>	=E2=80=A2	Estimated Processing Time: 3 business d=
+ays<br><br>Our loan officer will contact you if additional information is r=
+equired. You can track your application status via <a href=3D"https://www.b=
+ankofamerica.com/loan-status?id=3D001">https://www.bankofamerica.com/loan-s=
+tatus?id=3D001</a>.<br><br>For any questions,<br>=F0=9F=93=9E Phone: 1-800-=
+432-1000 (24/7 Support)<br>=F0=9F=93=A7 Email: <a href=3D"mailto:support@ba=
+nkofamerica.com">support@bankofamerica.com</a><br>=F0=9F=92=AC Live Chat: B=
+OA Online Support<br><br>For loan-specific inquiries, you can also visit:<b=
+r>=F0=9F=94=97 Loan Support Portal: Track Loan Application<br><br>Best rega=
+rds,<br>Amy James<br>Loan Department<br>Bank of America<br></div><div><br><=
+/div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmai=
+l_signature"><div dir=3D"ltr"><div><font color=3D"#674ea7"><span style=3D"f=
+ont-size:12.8px"><b><br></b></span></font></div></div></div></div></div>
+
+--0000000000002fc6a90630ef3a93--

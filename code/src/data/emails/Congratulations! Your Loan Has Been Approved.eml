@@ -1,0 +1,122 @@
+Return-path: <rizvikavish205@gmail.com>
+Original-recipient: rfc822;kavish.r@icloud.com
+Received: from p00-icloudmta-smtpin-us-east-2d-60-percent-17 by p102-mailgateway-smtp-f9489dff6-bpf75 (mailgateway 2510B36)
+	with SMTP id e761fcd0-8433-4292-86f0-6097cfdc7996 
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:51:53 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: e761fcd0-8433-4292-86f0-6097cfdc7996
+Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
+	by p00-icloudmta-smtpin-us-east-2d-60-percent-17.p00-icloudmta-smtpin-vip.icloud-mail-production.svc.kube.us-east-2d.k8s.cloud.apple.com (Postfix) with ESMTPS id 6AA25C0009B
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:51:50 +0000 (UTC)
+X-ICL-Info: GAtbRFYDBVFFSlVHSwQEUVUKE0oWX1gHVQoPB0UCBltbQVNZSgEGTEFNRhIcDUQLDw8PHBlGXxEdS1ZCOFdbAxwVSBQXXRYEEUQBGhlZWkwWFgtXClMLCRQPDwQQHkQiHBoKGA1UGAEaFEYfHVxZXxgYDxtVX0JTWB9SQ1ZXWQ0SFQNZG19bQgUNFEoVUV8OWBYSRlVWAlZbHgkYH1xTTBYWC1ccVAsFGBgPG1ZTWQ9VFA8TRQx1Iz9NDkY2Z0wDISFXRihgXy5DFlI0DVdFI0A4PxJTQUAyPk8yQUBYRChAQU1GF11nXzQ5CxYRXBgFGBgPG1ZTWQ9L
+X-ICL-Score: 3.33303303423
+Authentication-Results: bimi.icloud.com; bimi=skipped reason="insufficient dmarc"
+X-ARC-Info: policy=fail; arc=none
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=gmail.com
+X-DMARC-Policy: v=DMARC1; p=none; sp=quarantine; rua=mailto:mailauth-reports@google.com
+X-DMARC-Info: pass=pass; dmarc-policy=none; s=r1; d=r1; pdomain=gmail.com
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=BXLtj4Uu
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.210.44 as permitted sender) smtp.mailfrom=rizvikavish205@gmail.com
+Received-SPF: pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.210.44 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.210.44; helo=mail-ot1-f44.google.com; envelope-from=rizvikavish205@gmail.com
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-72bd828f18dso1037026a34.2
+        for <kavish.r@icloud.com>; Sat, 22 Mar 2025 07:51:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742655108; x=1743259908; darn=icloud.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WgP/kXZOX8hJSLB1G2h53HWqvHavCb/pBfWM57bZO1E=;
+        b=BXLtj4UuA7VTfBmkwyiSy4RQZgE2GrcH9xXoeyWi77ynWDWVjwd8K2BCUDHW6vrETM
+         OFOF21hnyffCh9g07OZIFh/Q0xNq92NvsJ/MKDfS6HihXjaY/dDFCspvaU6c74aJizX3
+         z4ngV1CeESwju+MUaWRbhhcGHjs2jXrbIHmORmyu++UPjJ7WXzczfAD/EIPY3kG6tGxe
+         N1BmfCMpQQGsISKVSmu7x1BiwOMdq5GdM226CpmFxs4h9B3Wo4rOzX4LmPuFU7iNct7k
+         ayRjvVErNe6Gsu3IGaykHu/FCyJui0QkRopvyXeRfNzmyvzWTmIAqul6uM29QUqglKY/
+         Iq5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742655108; x=1743259908;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WgP/kXZOX8hJSLB1G2h53HWqvHavCb/pBfWM57bZO1E=;
+        b=OwW072H/EE7UyYTx+TuWxZ55fpCONynM9MZJT528K0OnPWO7DPbTWT/l+63DNGyl8p
+         nUQo3QphvPRUTUHBjfMbqS+WZL0dqhBqrI45YZyK045REZBiKlJpMNiFOBGrhVPlaF+5
+         l25RcRPfRiz7uBm9DviL5ZplTw0O3QBIiTazw7u1jOpZmmW8YvWCW44SCJtxK49j9MXt
+         oFFSUoPl6oZENeGqfOypqKHyIY1UDE/ETTiyg0awQGPR7zrK4Hk10EyjW0ynZ88/mVPM
+         1CqKV/ODJhC8WonhSN5uBdTBc7Va5Cr+blfH/Zj21xkbxoDswsXwLUZMzQ+SJjwzDnIn
+         upAw==
+X-Gm-Message-State: AOJu0YzfIy5wstHMw2N0JQs7XdekZgo05tCVbhpNxK98ym/A6sIs6rJJ
+	uICWSGGTFkPF1t8whRBXelbFxQehMLihTcFUFMGwf6HbphtUPeMOZVnTlJJn9JEmz63sGZYKa+y
+	TRceQ+GtTBw1EcNNSWZNhVhnO5FHPt6v5
+X-Gm-Gg: ASbGncuShyMGLLZf8XheyxLROCjLXFHlZdVrDUnzO+ZNh7Yqz4lXckGZky50QJi6rOt
+	bcMUolczOfbiMYcdq9Tcb1AEn7qyS8LFdsC+yXT3wiBiVI89NveSikr1xEJM0dfVc4KVBXwjwoS
+	+cdyd2XMqGYRjiB8V3r5zVEBm/
+X-Google-Smtp-Source: AGHT+IHzcaSbrtyBau81oUW9Tb1YINk75kSpOumusZAIHOcpTGLsT81dC7Az4SqJInbdsaf3ZuXV1Rwhlrwa8nbAe04=
+X-Received: by 2002:a05:6830:61c9:b0:72b:843c:ecf with SMTP id
+ 46e09a7af769-72c0af01dbemr5438158a34.20.1742655108272; Sat, 22 Mar 2025
+ 07:51:48 -0700 (PDT)
+MIME-Version: 1.0
+From: Kavish Rizvi <rizvikavish205@gmail.com>
+Date: Sat, 22 Mar 2025 20:21:37 +0530
+X-Gm-Features: AQ5f1Jpjt3T1ULy7_zGBr40V2V-tQ-L7PVgaXSWADV1wZ3-r52tLA6J5hrg5XbU
+Message-ID: <CAJ4h1NWzaTX11PPiL6o4CugsA5AYe+qvPK6T68hrJ58+1omQ=A@mail.gmail.com>
+Subject: Congratulations! Your Loan Has Been Approved
+To: Kavish Rizvi <kavish.r@icloud.com>
+Content-Type: multipart/alternative; boundary="000000000000b1dc680630ef8269"
+X-MANTSH: 1TFkXGxoaHxEKWUQXZx9dHktdaFhvGkERCllNF25PRkNcT1gRCl9ZFxsfHhEKX00
+ XZEVETxEKWUkXHR9xGwYbHxp3BgcSBhoGGgYdBhgaGnEbGhoQGncGGgYHGx8aBhkaBhoGGgYac
+ RoQGncGGhEKWV4XbGx5EQpDThdSTEZAWB1ZHhlNZ29ebHBBfxN9ZX56E3x4GUxgYn4aWBEKWFw
+ XGQQaBB8bBRsaBBsSGAQYGxkEGx0QGx4aHxoRCl5ZF0xsYmdCEQpNXBcbHhEKTFoXbGlrTWsRC
+ kxGF01rEQpDWhcYGhMEEh8EGBsaBB4eEQpCXhcbEQpCXBcbEQpeThcbEQpCSxdjU2NrexNYfhp
+ fXhEKQkkXY1Nja3sTWH4aX14RCkJFF2BkGVlTfHJGb0hBEQpCThdjU2NrexNYfhpfXhEKQkwXa
+ 3tLSWByS2hMeB8RCkJsF2t+H08aQElCRUVeEQpCQBduZmJ4YnNLbmhBHREKQlgXZwFEawFdWGV
+ HGF8RCk1eFxsRClpYFxgRCnBoF2hEUG1/Gh5GGBpjEBkaEQpwaBdte1keaRxjBRNbfhAZGhEKc
+ GgXblpFG0llYGMbEnoQGRoRCnBoF2Vue1BiQkxpX2gaEBkaEQpwaBdlBVloUgF7YF1NUBAZGhE
+ KcGgXZ3tZHVhpQ2tyc0QQGRoRCnBoF2cFGFJFRWdsc1lIEBkaEQpwaBdmYV5lUhJkcgFCRxAZG
+ hEKcGwXYEMecxpPXEBEXxoQGRoRCnBMF2scGWRcTWZvSBJpEBkaEQptfhcbEQpYTRdLEQ==
+X-Proofpoint-GUID: xfljr7s43gMEtFZkU9WOTP9VR3fJHT0r
+X-Authority-Info: v=2.4 cv=cothk04i c=1 sm=1 tr=0 ts=67dece86 cx=c_apl:c_pps a=PnbjpSU/03CrHefOPWZnMg==:117 a=Vs1iUdzkB0EA:10 a=1EWHoNYXi6cA:10 a=x7bEGLp0ZPQA:10 a=32LuoWKU4TAA:10 a=95EFz5htlIgA:10 a=wpWueUVL5ZSqYLiGhDQA:9 a=QEXdDO2ut3YA:10 a=5B-DQtqWOC-F4j68yxYA:9 a=SmrAukTJSKtd-l7V:21 a=Uz9EnhuHEG25YKoRyM-d:22 a=xly9g2Kh2qStp_sYVjLA:22
+X-Proofpoint-ORIG-GUID: xfljr7s43gMEtFZkU9WOTP9VR3fJHT0r
+
+--000000000000b1dc680630ef8269
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear John Doe,
+
+We are pleased to inform you that your Auto Loan application has been
+approved. Below are the loan details:
+=E2=80=A2 Loan Amount: $25,000
+=E2=80=A2 Interest Rate: 6.2% APR
+=E2=80=A2 Repayment Term: 72 months (6 years)
+=E2=80=A2 Monthly Installment: $414.52
+=E2=80=A2 Disbursement Date: 03/25/2025
+
+To complete the process, please sign and submit the final agreement via
+Loan Agreement Portal.
+
+For further assistance, contact us at 1-800-432-1000.
+
+Best regards,
+Michael Thompson
+Senior Loan Officer
+Bank of America
+
+--000000000000b1dc680630ef8269
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear John Doe,<br><br>We are pleased to inform you th=
+at your Auto Loan application has been approved. Below are the loan details=
+:<br>	=E2=80=A2	Loan Amount: $25,000<br>	=E2=80=A2	Interest Rate: 6.2% APR<=
+br>	=E2=80=A2	Repayment Term: 72 months (6 years)<br>	=E2=80=A2	Monthly Ins=
+tallment: $414.52<br>	=E2=80=A2	Disbursement Date: 03/25/2025<br><br>To com=
+plete the process, please sign and submit the final agreement via Loan Agre=
+ement Portal.<br><br>For further assistance, contact us at 1-800-432-1000.<=
+br><br>Best regards,<br>Michael Thompson<br>Senior Loan Officer<br>Bank of =
+America<br></div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smart=
+mail=3D"gmail_signature"><div dir=3D"ltr"><div><font color=3D"#674ea7"><spa=
+n style=3D"font-size:12.8px"><b><br></b></span></font></div></div></div></d=
+iv></div>
+
+--000000000000b1dc680630ef8269--

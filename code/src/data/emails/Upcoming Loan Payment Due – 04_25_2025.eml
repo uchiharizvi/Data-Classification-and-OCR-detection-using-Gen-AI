@@ -1,0 +1,109 @@
+Return-path: <rizvikavish205@gmail.com>
+Original-recipient: rfc822;kavish.r@icloud.com
+Received: from p00-icloudmta-smtpin-us-central-1n-100-percent-20 by p102-mailgateway-smtp-f9489dff6-kqctp (mailgateway 2510B36)
+	with SMTP id 2a5be596-e540-45da-bfa1-cc1af13a468f 
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:53:43 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: 2a5be596-e540-45da-bfa1-cc1af13a468f
+Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com [209.85.160.51])
+	by p00-icloudmta-smtpin-us-central-1n-100-percent-20.p00-icloudmta-smtpin-vip.icloud-mail-production.svc.kube.us-central-1n.k8s.cloud.apple.com (Postfix) with ESMTPS id D70ADC00096
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:53:40 +0000 (UTC)
+X-ICL-Info: GAtbRFYDBVFFSlVHSwQEUVUKE0oWX1gHVQoPB0UCBltbQVNZSQYGTEBIRhIcDUQLDw8PHBlGXxEdS1ZCOFdbAxwVSBQXXRYEEUQBGhlZWkwWFgtXClMLCRQPDwQQHkQiHBoKGA1UGAEaFEYfHVxZXxgYDxtVX1dTWB9TRlZXWQ0SFQNZG19bQgUNFEoVUV8OWBYHRlVWA1NbHgkYH1xTTBYWC1ccVAsFGBgPG1ZTWQ9VFA8TRQx1Iz9NDkY2ZXgoDz9SFRxmejIUAwFONVpZFg06NloJYn49JQojExYNXxovDlUYAlNGUgI5CxYRXBgFGBgPG1ZTWQ9L
+X-ICL-Score: 3.33303303423
+Authentication-Results: bimi.icloud.com; bimi=skipped reason="insufficient dmarc"
+X-ARC-Info: policy=fail; arc=none
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=gmail.com
+X-DMARC-Policy: v=DMARC1; p=none; sp=quarantine; rua=mailto:mailauth-reports@google.com
+X-DMARC-Info: pass=pass; dmarc-policy=none; s=r1; d=r1; pdomain=gmail.com
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=IKblOCkx
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.160.51 as permitted sender) smtp.mailfrom=rizvikavish205@gmail.com
+Received-SPF: pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.160.51 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.160.51; helo=mail-oa1-f51.google.com; envelope-from=rizvikavish205@gmail.com
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-2b2b6019a74so1413080fac.0
+        for <kavish.r@icloud.com>; Sat, 22 Mar 2025 07:53:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742655219; x=1743260019; darn=icloud.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=kBFEoJGttn/lUM5TJ10+1jpdRN/4Ms1t5iu1eGzSkWg=;
+        b=IKblOCkxsBNCnIslMWnAqFuc4nznLXi2FBhyfxDjo/iPB9IgjyroBlecPFnMY3LYJQ
+         JttgJ/ttR7eDNRkv1x1XRK39fxotCCbby/R9xTpyE/ruG05HC3fj4id1gQPt9Y17qeHK
+         MgtOldWPFTsHwGyGJmx8ZgRz9KJX58ldKOpIOYVdzwhujeqhZ747wrV7vONpmANi2RDS
+         JzHPO6n8Xd2BouH4ZqTrHX3TVattg9nnCi4YhORcTmAN6VS3Lu0zJIRRLISp1IC6l5Ph
+         v6yOqCYaJFZWsIiCKmzgyVkguZPcGohZNXDk/vQJhJrshqWeZN1izl2YRnw/akHcNfXs
+         Y0EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742655219; x=1743260019;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kBFEoJGttn/lUM5TJ10+1jpdRN/4Ms1t5iu1eGzSkWg=;
+        b=Uo64tAUolNH5wv5e8x2oSOy8+vx5MS6My3lWJoStTm5CUzTVpJBk9re1RymkQJyOg3
+         FtK4bm9LsnQlzMNdZwIZE8vJG+CkDWg+PFaws5ewOg/kkrcwppkQc6Cf9Gj1pxpWAJHN
+         6qSNCCQ1wDsR0dUlqXJc4RWKZI6e+M9lf12UyoxEhShPAok9YSo8J2lES6/0eDRLG3Kd
+         UzFRyqaVdjS9SvjcecrIuQ/stVYKmVhO+yKEPumDGyUyTNO9kE+eRhmkbYZbsiCZvFEs
+         klV+48+oxMAC+2aWHkodHlgWz77qv/6E3u+/gQk4ODAqn2m+fg1yS5xHjxWk+d6OCxkc
+         H8rA==
+X-Gm-Message-State: AOJu0Yzy8CgY9yieRUGYERtICUmgbUmuXkhzBu1LUzIq2R6MSXRQ3ptS
+	SKcrm3HojU86YDNR7YO9UzC4UTaZGfu6mhgicRho4Hjkpon9VMDC/9UE2mvkgl9pfE7RqUNW6p6
+	6oJTdhsx9siWohfXxIMA1LUZfglXoJoGu
+X-Gm-Gg: ASbGnctUQP1orXgTIRG8rU7WrezdIHvZjTm4d9iAsHpuRzqMQMT7j04EfL2xocqhW5e
+	FLqa2/1e1Q8y6ORUYihTGpXM4ru6K/kSFd7oVqOXdmZecTEWfWyXsWVPIA7UYaUmHlO/rxkHUuL
+	np82jZc8G1d+nkLp4AodJv2O5Y8sftDILk0Oc=
+X-Google-Smtp-Source: AGHT+IHtgQDHzD056jZN4ETHaMTGJmTMitb+6GZvxm3axE3RnjogdGYIIri3D+vgbUGRFV+J82KlSSDvHB3Y2KWJsVU=
+X-Received: by 2002:a05:6871:200c:b0:2c6:64da:5af1 with SMTP id
+ 586e51a60fabf-2c7802022bdmr4514133fac.3.1742655219262; Sat, 22 Mar 2025
+ 07:53:39 -0700 (PDT)
+MIME-Version: 1.0
+From: Kavish Rizvi <rizvikavish205@gmail.com>
+Date: Sat, 22 Mar 2025 20:23:27 +0530
+X-Gm-Features: AQ5f1JqwF6xNAMxO2eAMSdL2O9-VI2hI9SO2-o_g4a7CD2-uZUikSv1bmqTkKR4
+Message-ID: <CAJ4h1NUNJzF4bdVLPazg9MjotxCP-qRH_PsEdn=ixZw3ozcp0w@mail.gmail.com>
+Subject: =?UTF-8?Q?Upcoming_Loan_Payment_Due_=E2=80=93_04=2F25=2F2025?=
+To: Kavish Rizvi <kavish.r@icloud.com>
+Content-Type: multipart/alternative; boundary="0000000000004f6c1d0630ef8958"
+X-MANTSH: 1TFkXGxoaHxEKWUQXZx9dHktdaFhvGkERCllNF25PRkNcT1gRCl9ZFxgfGBEKX00
+ XZEVETxEKWUkXHR9xGwYbHxp3BgcZBhoGGgYHHxoGGBoacRsaGhAadwYaBhoGGRoGGgYaBhpxG
+ hAadwYaEQpZXhdsbHkRCkNOF3taRHhacxJhYkRZW0EeekJhUwd6H3lTfn8eG2BQR2xIEQpYXBc
+ ZBBoEHxsFGxoaBBIYBB4YBBkaEBseGh8aEQpeWRdMbGJlexEKTVwXBxsYGhEKTFoXaGlrTW8RC
+ kxGF01rEQpDWhcYGhMEEh8EGxwaBB8bEQpCXhcbEQpCXBcbEQpeThcbEQpCSxdjU2NrexNYfhp
+ fXhEKQkkXY1Nja3sTWH4aX14RCkJFF2BkGVlTfHJGb0hBEQpCThdjU2NrexNYfhpfXhEKQkwXa
+ 3tLSWByS2hMeB8RCkJsF2t+H08aQElCRUVeEQpCQBdhXkl6c3hJGGNOQREKQlgXZwFEawFdWGV
+ HGF8RClpYFxgRCnBoF2hZc3NaHHNbRGEfEBoRCnBoF21oR0VpHVNjQxlvEBoRCnBoF2BsaxtsT
+ lMaWUBnEBoRCnBoF2ZnTnBySBkbbVtGEBoRCnBoF3oSZH1gY3BGU2FZEBoRCnBoF2wSSG5hWRx
+ 9SFJOEBoRCnBsF2BDHnMaT1xARF8aEAcZGhEKcEwXaxwZZFxNZm9IEmkQBxkaEQptfhcaEQpYT
+ RdLEQ==
+X-Proofpoint-GUID: QpnRpY8KHnsqk4PhKy-P5SyTU41JzmFb
+X-Authority-Info: v=2.4 cv=X4aoKHTe c=1 sm=1 tr=0 ts=67decef5 cx=c_apl:c_pps a=69SCJCPv+j67QbIl3pofag==:117 a=Vs1iUdzkB0EA:10 a=5KLPUuaC_9wA:10 a=1EWHoNYXi6cA:10 a=x7bEGLp0ZPQA:10 a=32LuoWKU4TAA:10 a=95EFz5htlIgA:10 a=Siu6hmW8X3jaIQZyZFQA:9 a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10 a=zZCYzV9kfG8A:10 a=rc72kKmHtAqCbSJaSg0A:9 a=Uz9EnhuHEG25YKoRyM-d:22
+X-Proofpoint-ORIG-GUID: QpnRpY8KHnsqk4PhKy-P5SyTU41JzmFb
+
+--0000000000004f6c1d0630ef8958
+Content-Type: text/plain; charset="UTF-8"
+
+Dear John Doe,
+
+This is a reminder that your upcoming loan payment of $579.98 for your Auto
+Loan is due on 04/25/2025.
+
+Ensure timely payment to avoid late fees. You can make payments via BOA
+Payment Portal or through your Bank of America account.
+
+If you have already made the payment, kindly ignore this notice.
+
+Best regards,
+Loan Servicing Team
+Bank of America
+
+--0000000000004f6c1d0630ef8958
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear John Doe,<br><br>This is a reminder that your up=
+coming loan payment of $579.98 for your Auto Loan is due on 04/25/2025.<br>=
+<br>Ensure timely payment to avoid late fees. You can make payments via BOA=
+ Payment Portal or through your Bank of America account.<br><br>If you have=
+ already made the payment, kindly ignore this notice.<br><br>Best regards,<=
+br>Loan Servicing Team<br>Bank of America<br></div></div>
+
+--0000000000004f6c1d0630ef8958--

@@ -9,6 +9,7 @@ from langchain_core.prompts import PromptTemplate
 from lib.attachments import extract_attachments
 from llm import summarize_email, llm_process, spam_flag, duplicate_email_check
 from Utils.Util import saveEmailAttachement
+# from lib.spam_detection import detect_spam
 
 # Define Logger
 logger = logging.getLogger("app_comparison.py")
@@ -18,10 +19,7 @@ BASE_PATH = 'C:/Users/Aditya Mangla/AppData/Local/nomic.ai/GPT4All/models/'
 
 #  callback method
 from langchain_core.callbacks import BaseCallbackHandler
-
 count = 0
-
-
 class MyCustomHandler(BaseCallbackHandler):
     def on_llm_new_token(self, token: str, **kwargs) -> None:
         global count
@@ -76,6 +74,8 @@ if option=='Spam Check':
         logger.info("Saved email and attachment")
         # Pass the prompt to the LLM Chain
         response = spam_flag(email_text, attachments_text, llm)
+        # Pass the email to ML Model
+        # is_spam = detect_spam(email_text)        
         logger.info("Response post processing from LLM : "+response)
         # do this
         st.write(response)    

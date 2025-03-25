@@ -1,0 +1,112 @@
+Return-path: <rizvikavish205@gmail.com>
+Original-recipient: rfc822;kavish.r@icloud.com
+Received: from p00-icloudmta-smtpin-us-west-1a-60-percent-34 by p102-mailgateway-smtp-f9489dff6-hnbrn (mailgateway 2510B36)
+	with SMTP id 5b75ce1e-b6f9-4f48-926b-e932835e77a4 
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:54:32 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: 5b75ce1e-b6f9-4f48-926b-e932835e77a4
+Received: from mail-oo1-f46.google.com (mail-oo1-f46.google.com [209.85.161.46])
+	by p00-icloudmta-smtpin-us-west-1a-60-percent-34.p00-icloudmta-smtpin-vip.icloud-mail-production.svc.kube.us-west-1a.k8s.cloud.apple.com (Postfix) with ESMTPS id E2C2AC000B2
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:54:29 +0000 (UTC)
+X-ICL-Info: GAtbRFYDBVFFSlVHSwQEUVUKE0oWX1gHVQoPB0UCBltbQVNZSQYHTEFPRhIcDUQLDw8PHBlGXxEdS1ZCOFdbAxwVSBQXXRYEEUQBGhlZWkwWFgtXClMLCRQPDwQQHkQiHBoKGA1UGAEaFEYfHVxZXxgYDxtVX1lTWB9SQVZXWQ0SFQNZG19bQgUNFEoVUV8OWBYJRlVWAlRbHgkYH1xTTBYWC1ccVAsFGBgPG1ZTWQ9VFA8TRQx1Iz9NDkY2ZVwKFk40HTJyRQ8WJiIDM2VOAAQxUhM/Gw4jIhEkPT5lATo7HCcCFkdhLTQ5CxYRXBgFGBgPG1ZTWQ9L
+X-ICL-Score: 3.33303303423
+Authentication-Results: bimi.icloud.com; bimi=skipped reason="insufficient dmarc"
+X-ARC-Info: policy=fail; arc=none
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=gmail.com
+X-DMARC-Policy: v=DMARC1; p=none; sp=quarantine; rua=mailto:mailauth-reports@google.com
+X-DMARC-Info: pass=pass; dmarc-policy=none; s=r1; d=r1; pdomain=gmail.com
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=GeWG/O+N
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.161.46 as permitted sender) smtp.mailfrom=rizvikavish205@gmail.com
+Received-SPF: pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.161.46 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.161.46; helo=mail-oo1-f46.google.com; envelope-from=rizvikavish205@gmail.com
+Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-601c469cce3so679933eaf.2
+        for <kavish.r@icloud.com>; Sat, 22 Mar 2025 07:54:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742655268; x=1743260068; darn=icloud.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=okI8nb355biq+hi9cnvo230KI7Fh79hfWk5y5+qSnp8=;
+        b=GeWG/O+NY8UY97m+JTCUfkrYdm4i/mtehi21em3lWKeVymUmsgQpOcA0QddMK4GG2g
+         VV1q3vITEVRopRComQb6IDSl6irqBhrDjZHwaU0qvnVEcS15X7WDn1c7kRnndWuFGMU5
+         O1c4o/FAf5MK4fim/6XzJ3hcXi2XetegnPq1ZoC9pj9I3KvJ3R1TdnvQG00nWQ6vWC44
+         OAqzMJGS6z0O0VYx4sCitc87nW38OIxQaNhuhYUSlxBW3YH5EVuLp+MfqPr4rJegFWhd
+         ed7BVbXcIXUq+DdQyE+j5iSA6rlHQpm1KJ89ZUm9HMGz0bCzWn/SfJlZ9dDrRBd3009n
+         wC0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742655268; x=1743260068;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=okI8nb355biq+hi9cnvo230KI7Fh79hfWk5y5+qSnp8=;
+        b=CCmnr4gDmTH9kwc3ufU0U3iXOHjyAc4Tcc9Z3pfXe8GvSj4QQFEpAlFsKvzAyotXK5
+         4AOeOUeA94zD0l2/EyA4ZjR3R4Ruu/1sCRKfnNbzvK2KzwLCk0wTB/naQKMZwi/9h+Ie
+         T/dy3iiBajorGm1X3Nou5GDH45gB0UxeQr6xSemBUgCjMIAA9Q49lRwEuW8Vwfn4+418
+         gGigdctedv5Cn4llqELIJD7oolxga5b+d8/PmZhxf4HO7/BBzOaxnAoPtlb4lbLo2fXh
+         LbpYvxwsBInKmk4UQ45fxN9FGaoXkE7YDfQH5IdqaoZONwUPPFSHxlsLxHI5ltEV8PhX
+         2oMg==
+X-Gm-Message-State: AOJu0YwvAhUViQyhYlpvC41GQvmIndfxKMbJLcwEL38P3GKY+YbbjmtR
+	mQvzzTCQbQsvKt79f3b1gxHDETupKnCdbLb8MjD0FAFXETBj9zItGrLkmnNAyKNBV8IAlyeSf0A
+	vfku8+P3aiK8o8oscxHHOzlgPOwrjFRVx
+X-Gm-Gg: ASbGncuars+WwOSxs0cHCSy/W/o3N9Zf1h2MKctGYwhEkfFyZybFmYTX853+bIuu/pZ
+	kj3j4hLEA0tCuvLPfdKgywKIqwQzXiIoMAH8c8ou5KZd++qx8Zd7OlZCa5Iwa/Sn2V2hy7BeaS3
+	15Pjaxl5NB0ZFyyqVkvASMtsYF
+X-Google-Smtp-Source: AGHT+IGIGMSWMFGyGH8gDxDBHietrh8JEuobry+3tbLnjSxAhIQr+KA4cQzKaixOLRLjVAUrhKv0fq1ajLHePryW/Uc=
+X-Received: by 2002:a05:6870:4693:b0:2c2:2e8e:2030 with SMTP id
+ 586e51a60fabf-2c780391941mr4522658fac.23.1742655267934; Sat, 22 Mar 2025
+ 07:54:27 -0700 (PDT)
+MIME-Version: 1.0
+From: Kavish Rizvi <rizvikavish205@gmail.com>
+Date: Sat, 22 Mar 2025 20:24:15 +0530
+X-Gm-Features: AQ5f1JrhD9nSXTA7NPb5yqzqjvUv3TERlapSPDBjwJsz8SzQNi7w3Q3qLXwMdUQ
+Message-ID: <CAJ4h1NUjhc7RjJBsmc_DtKUxbqH4dG+8AWhBJFU7XNeAunwWOA@mail.gmail.com>
+Subject: Loan Application Status Update
+To: Kavish Rizvi <kavish.r@icloud.com>
+Content-Type: multipart/alternative; boundary="0000000000003619dc0630ef8c16"
+X-MANTSH: 1TFkXGxoaHxEKWUQXZx9dHktdaFhvGkERCllNF25PRkNcT1gRCl9ZFxgTHBEKX00
+ XZEVETxEKWUkXHR9xGwYbHxp3BgccBhkaQhMGGgYHGRkGGBoacRsfGhAadwYaBhoGGRoGGgYaB
+ hpxGhAadwYaEQpZXhdsbHkRCkNOF2FNeUAfdRMee05NGBxaYGAaXXt7aF9ffR9BQBljYBJTEQp
+ YXBcZBBoEHxsFGxoEGxIYBBgbGQQbHRAbHhofGhEKXlkXTGxiemgRCk1cFwccHBEKTFoXaGlrT
+ WsRCkxGF01rEQpDWhcYGhMEEh8EGxwbBB4cEQpCXhcbEQpCXBcbEQpeThcbEQpCSxdjU2NrexN
+ YfhpfXhEKQkkXY1Nja3sTWH4aX14RCkJFF2BkGVlTfHJGb0hBEQpCThdjU2NrexNYfhpfXhEKQ
+ kwXa3tLSWByS2hMeB8RCkJsF2t+H08aQElCRUVeEQpCQBdscFl4TnwTE21nQBEKQlgXZwFEawF
+ dWGVHGF8RCk1eFxsRClpYFxgRCnBoF2R+el5maFt/SRxmEBoRCnBoF29IXUhMH0d/bmYYEBoRC
+ nBoF2N7SWceeGVrWxsbEBoRCnBoF2FlGV9uG1MSUlpoEBoRCnBoF2BsG3J6R0UbWRpMEBoRCnB
+ oF2lcW2ZcQl0YU0loEBoRCnBoF2JSbWlrTXkeeEZeEBoRCnBoF2xmGntcTU1lTEgBEBoRCnBsF
+ 2BDHnMaT1xARF8aEBkaEQpwTBdrHBlkXE1mb0gSaRAZGhEKbX4XGxEKWE0XSxE=
+X-Authority-Info: v=2.4 cv=fOjD3Yae c=1 sm=1 tr=0 ts=67decf26 cx=c_apl:c_pps a=T3HAWIOdjWoca81rNQcl3g==:117 a=Vs1iUdzkB0EA:10 a=1EWHoNYXi6cA:10 a=x7bEGLp0ZPQA:10 a=32LuoWKU4TAA:10 a=95EFz5htlIgA:10 a=_q1BAHWdcGC1R2zfl6oA:9 a=QEXdDO2ut3YA:10 a=MJuZnZIqsmkA:10 a=Zb1Z1DL7u0qA9bH3D0MA:9 a=Uz9EnhuHEG25YKoRyM-d:22 a=xly9g2Kh2qStp_sYVjLA:22
+X-Proofpoint-ORIG-GUID: KgSj5_94Qdg26pJJ0wQQBuuW5kj3IJ8y
+X-Proofpoint-GUID: KgSj5_94Qdg26pJJ0wQQBuuW5kj3IJ8y
+
+--0000000000003619dc0630ef8c16
+Content-Type: text/plain; charset="UTF-8"
+
+Dear John Doe,
+
+Thank you for your interest in a Personal Loan with Bank of America. After
+reviewing your application, we regret to inform you that your loan request
+has not been approved at this time due to a high debt-to-income ratio.
+
+You may reapply after 6 months or contact us at 1-800-432-1000 for further
+clarification.
+
+We appreciate your trust in Bank of America and hope to assist you in the
+future.
+
+Best regards,
+Loan Department
+Bank of America
+
+--0000000000003619dc0630ef8c16
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear John Doe,<br><br>Thank you for your interest in =
+a Personal Loan with Bank of America. After reviewing your application, we =
+regret to inform you that your loan request has not been approved at this t=
+ime due to a high debt-to-income ratio.<br><br>You may reapply after 6 mont=
+hs or contact us at 1-800-432-1000 for further clarification.<br><br>We app=
+reciate your trust in Bank of America and hope to assist you in the future.=
+<br><br>Best regards,<br>Loan Department<br>Bank of America<br></div></div>
+
+--0000000000003619dc0630ef8c16--

@@ -1,0 +1,109 @@
+Return-path: <rizvikavish205@gmail.com>
+Original-recipient: rfc822;kavish.r@icloud.com
+Received: from p00-icloudmta-smtpin-us-east-2d-60-percent-19 by p102-mailgateway-smtp-f9489dff6-gn66r (mailgateway 2510B36)
+	with SMTP id faa2f7f0-99b7-490f-ab02-3afc3c94c8c5 
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:52:41 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: faa2f7f0-99b7-490f-ab02-3afc3c94c8c5
+Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
+	by p00-icloudmta-smtpin-us-east-2d-60-percent-19.p00-icloudmta-smtpin-vip.icloud-mail-production.svc.kube.us-east-2d.k8s.cloud.apple.com (Postfix) with ESMTPS id 04B71C0012C
+	for <kavish.r@icloud.com>; Sat, 22 Mar 2025 14:52:39 +0000 (UTC)
+X-ICL-Info: GAtbRFYDBVFFSlVHSwQEUVUKE0oWX1gHVQoPB0UCBltbQVNZSQYGTEBNRhIcDUQLDw8PHBlGXxEdS1ZCOFdbAxwVSBQXXRYEEUQBGhlZWkwWFgtXClMLCRQPDwQQHkQiHBoKGA1UGAEaFEYfHVxZXxgYDxtVX1dTWB9TQ1ZXWQ0SFQNZG19bQgUNFEoVUV8OWBYHRlVWA1ZbHgkYH1xTTBYWC1ccVAsFGBgPG1ZTWQ9VFA8TRQx1Iz9NDkY2aF1SEkQSHlVCTjRAFCgaC2EPUCZNNgYwDXwEQjclBUVgdAMqFDE7SmQFADQ5CxYRXBgFGBgPG1ZTWQ9L
+X-ICL-Score: 3.33303303423
+Authentication-Results: bimi.icloud.com; bimi=skipped reason="insufficient dmarc"
+X-ARC-Info: policy=fail; arc=none
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=gmail.com
+X-DMARC-Policy: v=DMARC1; p=none; sp=quarantine; rua=mailto:mailauth-reports@google.com
+X-DMARC-Info: pass=pass; dmarc-policy=none; s=r1; d=r1; pdomain=gmail.com
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=ejvlMnGA
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.160.54 as permitted sender) smtp.mailfrom=rizvikavish205@gmail.com
+Received-SPF: pass (spf.icloud.com: domain of rizvikavish205@gmail.com designates 209.85.160.54 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.160.54; helo=mail-oa1-f54.google.com; envelope-from=rizvikavish205@gmail.com
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-2c77f0136e9so392981fac.3
+        for <kavish.r@icloud.com>; Sat, 22 Mar 2025 07:52:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742655155; x=1743259955; darn=icloud.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=YJhB/fgVkN199fj+tjRPlVmrSmBdlHMe1vnhJ+2/+Qk=;
+        b=ejvlMnGAsaTWB93pJyNbDotmvJy4CFQfwyk2h/Pa89J/q0VK5hOKnzK9ZBMwLJONM2
+         PSPuWF80ktzDBSm8eeraHtu89cFOkHqdzH7SUB0dBQ7LFUNyizZ5A66+PKLWa8YUZFRq
+         42u90btl0JKRS1wZJ0C5xrZDT7jwdTJIw9lgp55UTIM6WSvsD+6ge84dZy2XdwhZIlDH
+         UnY6P2KwgChJZhBdmUG2ltm1YYEFfEyvXU1mALzU8R8u49eDlPrAt9zErSKIs4GxTP3w
+         sBODRv88Om3t7/7MXAS/gXrcltB1mtCFn4IT7ydnPSiwzsLiqHy1dWfGjt7LxemxnwCj
+         7MGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742655155; x=1743259955;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YJhB/fgVkN199fj+tjRPlVmrSmBdlHMe1vnhJ+2/+Qk=;
+        b=sChAzpwueb/B2X7P+qDL2GPAJTCC6syBBxs73lFgu6Y+XhFyhnZMitTjZRxCPd48W1
+         VPn+FouIOFHu7rjgI4df4IOBWr1skI3lLP4D0gUQZNMri1/RoLXYOl9FwUoz/PuNOrgk
+         Z3sQbBQNZJ35rAsp0c2Uq67BmSefZY1WRkuC+1kpRPkACYUhsqh958q0q+OVtxqmbv56
+         ZRXTjA4hH0kXY4YkCr9IJd6UjxPJJ/LlJyHUlfvZH6DUQZtXqwxMT2lBtE1+upZRkEAp
+         7vNudj2QEdqJturjqcDgSPIHtcW9rXOH5AS4jkbcRbaM04M2E0D5w+SvDpz9ywN3c8YT
+         w4dA==
+X-Gm-Message-State: AOJu0YwVBsxz6hqlBYvXLgygVeTVEwop5/nluHT7ptif5e9NJb3PyCT6
+	Kxf/Zlq/hbuiABUi7wEZ7SzPLVsWi4kj6Nz8S2nh4VIkkK2CpEcCR4Ennf3kGO5Rag0u5zcmkKi
+	KXn8Zqhvif92r9VDNOeKdUCAJokLggEQY
+X-Gm-Gg: ASbGncs5xbUYkygt+6NfGkLdX2TBJyhHL5wYiHin4L3+Mzt2HdYJMfFNjNjO3vNFb3Z
+	BlunSgNQYlR4tjailhj6KAv122dVesga7byzz4nwgraHRI/Zc6v3QhfMJbZ1sXbGqJtguTRXQ5N
+	kCyACoPLKd0avZnaSSKZ2n527l
+X-Google-Smtp-Source: AGHT+IHgNc2PEY4J2VUPb03IgEMvkx2PpubkP2qonIcjKmJCtg4gKrMh8Z0W+q30sPeSpvTX0LdTKtw6CyWTbZg1Oew=
+X-Received: by 2002:a05:6870:612c:b0:29e:67e0:408b with SMTP id
+ 586e51a60fabf-2c7803835admr4278369fac.22.1742655155419; Sat, 22 Mar 2025
+ 07:52:35 -0700 (PDT)
+MIME-Version: 1.0
+From: Kavish Rizvi <rizvikavish205@gmail.com>
+Date: Sat, 22 Mar 2025 20:22:24 +0530
+X-Gm-Features: AQ5f1JoIZA_9V0xAn5JQSq2g8hfPW44JPnG18zHa-SSVU7tbntOoH5P1KMDTk_c
+Message-ID: <CAJ4h1NXk0g=ti-rxV5mNmsQ92S4PqH=Jf7NCr=PBa_mWL2T3bA@mail.gmail.com>
+Subject: Congratulations! Your Loan is Closed
+To: Kavish Rizvi <kavish.r@icloud.com>
+Content-Type: multipart/alternative; boundary="0000000000008143480630ef85eb"
+X-MANTSH: 1TFkXGxoaHxEKWUQXZx9dHktdaFhvGkERCllNF25PRkNcT1gRCl9ZFxgYGREKX00
+ XZEVETxEKWUkXHR9xGwYbHxp3BgcdBhkaQhMGGgYHHwYYGhpxGx8aEBp3BhoGBxsaGgYZGgYaB
+ hoGGnEaEBp3BhoRClleF2xseREKQ04XGX9mXWhyZhxNZmUdcFoSQlNeUFtsYXpsQ3N5ax9JYHw
+ RClhcFxkEGgQfGwUbGgQbEhgEGBsZBBsdEBseGh8aEQpeWRdMbGJkfhEKTVwXBxsbEQpMWhdsa
+ WtNaxEKTEYXTWsRCkNaFxgaEwQSHwQbHBoEHx4RCkJeFxsRCkJcFxsRCl5OFxsRCkJLF2NTY2t
+ 7E1h+Gl9eEQpCSRdjU2NrexNYfhpfXhEKQkUXYGQZWVN8ckZvSEERCkJOF2NTY2t7E1h+Gl9eE
+ QpCTBdre0tJYHJLaEx4HxEKQmwXa34fTxpASUJFRV4RCkJAF2Nte2xyQmJGexNaEQpCWBdnAUR
+ rAV1YZUcYXxEKTV4XGxEKWlgXGBEKcGgXY3ABU2JLe19pf0YQGhEKcGgXZx5cTBxsY0RbTnIQG
+ hEKcGgXaUwFQUZFeEFhYUUQGhEKcGgXYRpGYkBEfBNPfm0QGhEKcGgXa3kaSGdyU1lkQ1wQGhE
+ KcGgXaRNGf15DWGdzHGsQGhEKcGgXaUAecHMFGURDSx4QGhEKcGgXZEYcRnBGT2lsEmMQGhEKc
+ GwXYEMecxpPXEBEXxoQGRoRCnBMF2scGWRcTWZvSBJpEBkaEQptfhcbEQpYTRdLEQ==
+X-Proofpoint-GUID: 3ULwBXL6gLO7Zp8hytzqFKPFiYSA5cJV
+X-Authority-Info: v=2.4 cv=D+W9KuRj c=1 sm=1 tr=0 ts=67deceb8 cx=c_apl:c_pps a=Ygwj/67gK2c0HTC/x/Kn5A==:117 a=Vs1iUdzkB0EA:10 a=1EWHoNYXi6cA:10 a=x7bEGLp0ZPQA:10 a=32LuoWKU4TAA:10 a=95EFz5htlIgA:10 a=_q1BAHWdcGC1R2zfl6oA:9 a=QEXdDO2ut3YA:10 a=MJuZnZIqsmkA:10 a=zgiPjhLxNE0A:10 a=zZCYzV9kfG8A:10 a=GqJFsDg73QDlqT7CwXYA:9 a=Uz9EnhuHEG25YKoRyM-d:22 a=xly9g2Kh2qStp_sYVjLA:22
+X-Proofpoint-ORIG-GUID: 3ULwBXL6gLO7Zp8hytzqFKPFiYSA5cJV
+
+--0000000000008143480630ef85eb
+Content-Type: text/plain; charset="UTF-8"
+
+Dear John Doe,
+
+We are pleased to confirm that your Auto Loan with account number XXXX-5678
+has been successfully closed as of 03/25/2025.
+
+Please find attached the loan closure certificate for your records.
+
+For any future financial needs, feel free to contact us at 1-800-432-1000
+or visit Bank of America Loan Services.
+
+Best regards,
+Loan Department
+Bank of America
+
+--0000000000008143480630ef85eb
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear John Doe,<br><br>We are pleased to confirm that =
+your Auto Loan with account number XXXX-5678 has been successfully closed a=
+s of 03/25/2025.<br><br>Please find attached the loan closure certificate f=
+or your records.<br><br>For any future financial needs, feel free to contac=
+t us at 1-800-432-1000 or visit Bank of America Loan Services.<br><br>Best =
+regards,<br>Loan Department<br>Bank of America<br></div></div>
+
+--0000000000008143480630ef85eb--
