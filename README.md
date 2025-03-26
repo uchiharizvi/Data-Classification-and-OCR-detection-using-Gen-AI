@@ -22,8 +22,7 @@ Commercial Bank Lending Service teams receive a high volume of servicing request
 This project leverages Generative AI (LLMs) with LangChain to automate email classification and data extraction, improving efficiency, accuracy, and turnaround time in loan servicing.
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
+📹 [Video Demo](#)
 🖼️ Screenshots:
 
 ![Screenshot 1](artifacts/screenshots/ss1.jpg)
